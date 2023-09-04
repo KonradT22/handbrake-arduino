@@ -13,5 +13,5 @@ void setup() {
 }
 
 void loop() {
-  Joystick.setBrake(map(analogRead(A0), 0, 1023, 0, 255));
+  Joystick.setBrake(map(analogRead(A0), 0, 1000, 0, 200));
 }

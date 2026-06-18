@@ -4,21 +4,20 @@ A minimal Arduino sketch that converts a potentiometer into a USB handbrake axis
 
 ## Hardware
 
-| Component | Notes |
-|---|---|
-| Arduino Pro Micro (or Leonardo) | Must have native USB HID support |
-| 10 kΩ linear potentiometer | Attached to the handbrake mechanism |
-| 3 wires | VCC, GND, wiper → A0 |
-
-> Other ATmega32U4-based boards work too. Uno/Nano do **not** support native HID.
+| Component | Part | Notes |
+|---|---|---|
+| Arduino Pro Micro | ATmega32U4, 5V/16MHz | Must have native USB HID support — Uno/Nano do **not** |
+| Slide potentiometer | Bourns PTA4543-2010CPB103 | 10 kΩ, 45mm linear travel |
 
 ## Wiring
 
+The slide pot has three pins. With the pot oriented so the slider faces up:
+
 ```
-Potentiometer
-  Pin 1 (VCC)   →  Arduino 5V
-  Pin 2 (Wiper) →  Arduino A0
-  Pin 3 (GND)   →  Arduino GND
+Slide Potentiometer
+  Left pin  (GND)   →  Arduino GND  [black]
+  Middle pin (Wiper) →  Arduino A0   [yellow]
+  Right pin  (VCC)  →  Arduino VCC  [red]
 ```
 
 ## Dependencies
@@ -42,7 +41,7 @@ You can find the right value by opening the Arduino Serial Monitor and printing 
 
 1. Install the Joystick library via Library Manager
 2. Open `handbrake_arduino/handbrake_arduino.ino` in the Arduino IDE
-3. Select your board under **Tools → Board** (e.g., *Arduino Leonardo*)
+3. Select your board under **Tools → Board → SparkFun AVR Boards → SparkFun Pro Micro**
 4. Upload — the board will appear as a joystick in your OS
 5. Assign the brake axis in your simulator's controller settings
 
